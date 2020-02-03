@@ -14,6 +14,7 @@ jobs:
             echo $CIRCLE_PROJECT_REPONAME
             docker build -t "docker-local."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
             docker images
+            dockerd --insecure-registry=jfrog-lb-04101d2dd53d370e.elb.us-west-1.amazonaws.com
             docker login jfrog-lb-04101d2dd53d370e.elb.us-west-1.amazonaws.com -u ozawa -p xaJel4KO
 
       #- run:
