@@ -13,6 +13,7 @@ jobs:
           command: |
             echo $CIRCLE_PROJECT_REPONAME
             docker build -t "docker-local."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
+            docker images
 
       #- run:
       #    name: Login and Publish
@@ -38,4 +39,4 @@ jobs:
            /./jfrog rt bp $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
            /./jfrog rt bs $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM
            /./jfrog rt bpr $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM docker-local
-           /./jfrog rt dp ""$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM docker-local --build-name=my-build-name --build-number=7
+           # /./jfrog rt dp ""$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM docker-local --build-name=my-build-name --build-number=7
