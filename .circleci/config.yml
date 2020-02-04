@@ -13,8 +13,10 @@ jobs:
           command: |
             echo $CIRCLE_PROJECT_REPONAME
             docker build -t "docker-local."$jfqdn"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM .
+            echo ShowImage
             docker images
             dockerd --insecure-registry=jfrog-lb-04101d2dd53d370e.elb.us-west-1.amazonaws.com
+            echo DockerLogin
             docker login jfrog-lb-04101d2dd53d370e.elb.us-west-1.amazonaws.com -u ozawa -p xaJel4KO
 
       #- run:
